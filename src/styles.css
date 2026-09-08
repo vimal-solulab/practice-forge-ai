@@ -35,6 +35,8 @@
   --color-warn: var(--warn);
   --color-caution: var(--caution);
   --color-alert: var(--alert);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
   --font-display: var(--font-display);
   --font-sans: var(--font-body);
 }
@@ -44,53 +46,95 @@
   --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
 
-  --background: oklch(0.188 0.028 285);
-  --foreground: oklch(0.97 0.008 280);
-  --surface: oklch(0.205 0.045 262);
-  --surface-2: oklch(0.24 0.05 264);
-  --card: oklch(0.205 0.045 262);
-  --card-foreground: oklch(0.97 0.008 280);
-  --popover: oklch(0.205 0.045 262);
-  --popover-foreground: oklch(0.97 0.008 280);
-  --primary: oklch(0.792 0.177 151.5);
-  --primary-foreground: oklch(0.2 0.045 160);
-  --secondary: oklch(0.27 0.05 266);
-  --secondary-foreground: oklch(0.97 0.008 280);
-  --muted: oklch(0.26 0.045 264);
-  --muted-foreground: oklch(0.7 0.04 280);
-  --accent: oklch(0.702 0.183 293.5);
-  --accent-foreground: oklch(0.2 0.04 290);
-  --destructive: oklch(0.64 0.2 25);
-  --destructive-foreground: oklch(0.98 0.005 280);
-  --warn: oklch(0.72 0.16 45);
-  --caution: oklch(0.83 0.15 90);
-  --alert: oklch(0.64 0.2 25);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 14%);
-  --ring: oklch(0.792 0.177 151.5 / 60%);
+  /* SoluLab-inspired palette: white/light-gray sections, vivid blue brand,
+     deep-navy accent bands (hero, closing CTA, footer) via .navy below. */
+  --background: #ffffff;
+  --foreground: #0b1220;
+  --surface: #f6f8fb;
+  --surface-2: #edf1f7;
+  --card: #ffffff;
+  --card-foreground: #0b1220;
+  --popover: #ffffff;
+  --popover-foreground: #0b1220;
+  --primary: #0a63c9;
+  --primary-foreground: #ffffff;
+  --secondary: #edf1f7;
+  --secondary-foreground: #0b1220;
+  --muted: #edf1f7;
+  --muted-foreground: #5b6472;
+  --accent: #2f8fff;
+  --accent-foreground: #08182e;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --warn: #d97706;
+  --caution: #ca8a04;
+  --alert: #dc2626;
+  --success: #15803d;
+  --success-foreground: #ffffff;
+  --border: rgb(15 23 42 / 10%);
+  --input: rgb(15 23 42 / 14%);
+  --ring: rgb(10 99 201 / 50%);
 
-  --gradient-hero: radial-gradient(
-      55% 55% at -10% -10%,
-      oklch(0.702 0.183 293.5 / 0.2),
-      transparent 62%
-    ),
-    radial-gradient(55% 55% at 110% 110%, oklch(0.792 0.177 151.5 / 0.15), transparent 60%);
-  --gradient-panel: linear-gradient(160deg, oklch(1 0 0 / 9%), oklch(1 0 0 / 3%));
-  --shadow-panel: 0 24px 60px -24px oklch(0.1 0.03 280 / 0.9);
-  --shadow-glow: 0 0 0 1px oklch(0.792 0.177 151.5 / 0.25),
-    0 20px 60px -30px oklch(0.792 0.177 151.5 / 0.6);
+  --gradient-hero: radial-gradient(55% 55% at -10% -10%, rgb(47 143 255 / 8%), transparent 62%),
+    radial-gradient(55% 55% at 110% 110%, rgb(10 99 201 / 7%), transparent 60%);
+  --gradient-panel: linear-gradient(160deg, #ffffff, #f4f8fd);
+  --shadow-panel:
+    0 20px 45px -22px rgb(15 23 42 / 16%),
+    0 2px 8px -2px rgb(15 23 42 / 6%);
+  --shadow-glow:
+    0 0 0 1px rgb(10 99 201 / 25%),
+    0 16px 40px -22px rgb(10 99 201 / 45%);
+}
+
+/* Deep-navy accent band — applied to the hero, closing CTA and footer to
+   mirror solulab.com's alternating white / navy section rhythm. */
+.navy {
+  --background: #0b1b3a;
+  --foreground: #ffffff;
+  --surface: #12294f;
+  --surface-2: #17335f;
+  --card: #12294f;
+  --card-foreground: #ffffff;
+  --popover: #12294f;
+  --popover-foreground: #ffffff;
+  --primary: #4fa8ff;
+  --primary-foreground: #06152f;
+  --secondary: #17335f;
+  --secondary-foreground: #ffffff;
+  --muted: #17335f;
+  --muted-foreground: #aab9da;
+  --accent: #6fc6ff;
+  --accent-foreground: #06152f;
+  --warn: #fdba74;
+  --caution: #fde68a;
+  --alert: #fca5a5;
+  --success: #4ade80;
+  --success-foreground: #06152f;
+  --border: rgb(255 255 255 / 14%);
+  --input: rgb(255 255 255 / 18%);
+  --ring: rgb(79 168 255 / 55%);
+
+  --gradient-panel: linear-gradient(160deg, rgb(255 255 255 / 8%), rgb(255 255 255 / 2%));
+  --shadow-panel: 0 24px 60px -24px rgb(2 6 23 / 65%);
+  --shadow-glow:
+    0 0 0 1px rgb(79 168 255 / 30%),
+    0 20px 60px -30px rgb(79 168 255 / 55%);
 }
 
 @layer base {
   * {
-    border-color: var(--color-border);
+    border-color: var(--border);
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
-    background-color: var(--color-background);
+    background-color: var(--background);
     background-image: var(--gradient-hero);
     background-repeat: no-repeat;
-    color: var(--color-foreground);
+    color: var(--foreground);
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
   }
@@ -101,12 +145,13 @@
   h4 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
+    color: var(--foreground);
   }
 }
 
 @utility panel {
   background-image: var(--gradient-panel);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--border);
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-panel);
   backdrop-filter: blur(24px);
@@ -137,4 +182,66 @@
 
 @utility glow-ring {
   box-shadow: var(--shadow-glow);
+}
+
+/* Scroll-reveal: content is fully visible by default (no-JS / SSR safe).
+   Once JS mounts, .reveal-ready gates the hidden starting state so the
+   IntersectionObserver-driven .is-visible class can fade+rise it in. */
+.reveal-ready .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal-ready .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-ready .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Subtle moving gradient — used underneath connected-workflow visuals to
+   suggest "AI running through the pipeline" without a heavy animation. */
+@utility flow-line {
+  position: relative;
+  overflow: hidden;
+  background-image: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-primary) 45%,
+    var(--color-accent) 55%,
+    transparent
+  );
+  background-size: 60% 100%;
+  background-repeat: no-repeat;
+  animation: flow-move 3.5s linear infinite;
+}
+
+@keyframes flow-move {
+  0% {
+    background-position: -60% 0;
+  }
+  100% {
+    background-position: 160% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow-line {
+    animation: none;
+    background-position: 50% 0;
+  }
 }
