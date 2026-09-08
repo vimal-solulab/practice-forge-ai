@@ -144,74 +144,131 @@ function Index() {
       </header>
 
       {/* SECTION 1 — HERO */}
-      <section className="py-16 md:py-24">
-        <div className="mx-auto w-full max-w-6xl px-5">
-          <p className="eyebrow">The AI Operating System for Accounting, Tax & Advisory Firms</p>
-          <h1 className="mt-5 max-w-3xl text-4xl font-semibold leading-[1.05] md:text-6xl">
-            Run more clients with fewer manual handoffs.
-          </h1>
-          <p className="mt-6 max-w-2xl text-base text-muted-foreground md:text-lg">
-            Clients. Jobs. Workpapers. Documents. BAS. Tax. Advisory. Billing. Deadlines.
-          </p>
-          <p className="mt-3 max-w-2xl font-display text-lg text-foreground md:text-xl">
-            One practice operating system with AI working across every client workflow.
-          </p>
-          <div className="mt-8">
-            <Cta>See PracticeOS AI in Action →</Cta>
+      <section className="relative overflow-hidden py-16 md:py-24">
+        {/* Aurora glows */}
+        <div className="pointer-events-none absolute -top-[15%] -left-[10%] size-[55%] rounded-full bg-accent/20 blur-[120px]" />
+        <div className="pointer-events-none absolute -right-[10%] -bottom-[15%] size-[55%] rounded-full bg-primary/15 blur-[120px]" />
+
+        <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-14 px-5 lg:grid-cols-2">
+          {/* Content side */}
+          <div className="flex flex-col space-y-7">
+            <div className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-4 py-1.5 backdrop-blur">
+              <span className="relative flex size-2">
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-primary opacity-75" />
+                <span className="relative inline-flex size-2 rounded-full bg-primary" />
+              </span>
+              <span className="text-sm font-medium tracking-wide text-primary">
+                The AI OS for Accounting, Tax & Advisory Firms
+              </span>
+            </div>
+
+            <h1 className="text-5xl leading-[1.08] font-extrabold tracking-tight text-balance md:text-6xl lg:text-7xl">
+              Run more clients with{" "}
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                fewer manual handoffs.
+              </span>
+            </h1>
+
+            <p className="max-w-lg text-lg leading-relaxed text-muted-foreground md:text-xl">
+              Clients. Jobs. Workpapers. Documents. BAS. Tax. Advisory. Billing. Deadlines — one
+              practice operating system with AI working across every client workflow.
+            </p>
+
+            <div className="flex flex-wrap gap-4 pt-2">
+              <Cta>See PracticeOS AI in Action →</Cta>
+              <Cta variant="ghost">Request a Tailored Demo</Cta>
+            </div>
+
+            <div className="flex flex-wrap gap-2 border-t border-border/60 pt-6">
+              {[
+                "CRM",
+                "Workflow",
+                "Documents",
+                "Workpapers",
+                "Tax",
+                "BAS",
+                "Advisory",
+                "Billing",
+              ].map((t) => (
+                <Pill key={t}>{t}</Pill>
+              ))}
+            </div>
           </div>
 
-          {/* Hero visual */}
-          <div className="panel mt-14 grid gap-6 p-5 md:grid-cols-[1.35fr_1fr] md:p-7">
-            <div>
-              <div className="flex items-center justify-between">
-                <h2 className="font-display text-sm uppercase tracking-widest text-muted-foreground">
-                  Practice Dashboard
-                </h2>
-                <span className="text-xs text-muted-foreground">FY26 · Live</span>
+          {/* Glass dashboard mockup */}
+          <div className="relative">
+            <div className="panel flex aspect-[4/3.4] flex-col overflow-hidden rounded-3xl">
+              <div className="flex h-10 shrink-0 items-center justify-between border-b border-border px-4">
+                <div className="flex gap-1.5">
+                  <span className="size-2.5 rounded-full bg-alert/40" />
+                  <span className="size-2.5 rounded-full bg-warn/40" />
+                  <span className="size-2.5 rounded-full bg-primary/40" />
+                </div>
+                <span className="font-display text-[10px] tracking-widest text-muted-foreground uppercase">
+                  Practice Dashboard · FY26 Live
+                </span>
+                <span className="w-12" />
               </div>
-              <div className="mt-4 grid grid-cols-2 gap-3 lg:grid-cols-3">
-                <Stat value="1,284" label="Active Clients" />
-                <Stat value="342" label="Jobs In Progress" />
-                <Stat value="87" label="Awaiting Client Information" />
-                <Stat value="64" label="BAS Due" />
-                <Stat value="38" label="Tax Returns Ready for Review" />
-                <Stat value="A$286K" label="WIP" />
+              <div className="flex-1 space-y-4 p-5">
+                <div className="grid grid-cols-3 gap-3">
+                  <Stat value="1,284" label="Active Clients" />
+                  <Stat value="342" label="Jobs In Progress" />
+                  <Stat value="87" label="Awaiting Client Info" />
+                </div>
+                <div className="grid grid-cols-3 gap-3">
+                  <Stat value="64" label="BAS Due" />
+                  <Stat value="38" label="Tax Returns Ready" />
+                  <Stat value="A$286K" label="WIP" />
+                </div>
+                <div className="rounded-2xl border border-border bg-surface-2/50 p-4">
+                  <div className="mb-3 flex items-center justify-between">
+                    <span className="font-display text-xs font-semibold text-foreground">
+                      AI Practice Manager
+                    </span>
+                    <span className="rounded-md bg-primary/20 px-2 py-0.5 text-[9px] font-bold text-primary">
+                      42 jobs can progress today
+                    </span>
+                  </div>
+                  <div className="space-y-2">
+                    {[
+                      "18 clients are blocking tax work",
+                      "9 returns have unusual transactions",
+                      "27 client follow-ups can be sent now",
+                    ].map((s) => (
+                      <div
+                        key={s}
+                        className="flex h-9 items-center rounded-lg border border-border bg-surface/60 px-3 text-xs text-muted-foreground"
+                      >
+                        {s}
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
 
-            <aside className="rounded-2xl border border-primary/25 bg-surface-2/70 p-5">
-              <div className="flex items-center gap-2">
-                <span className="size-2 animate-pulse rounded-full bg-primary" />
-                <h3 className="font-display text-base font-semibold">AI Practice Manager</h3>
+            {/* Floating overlays */}
+            <div className="panel animate-float-soft absolute -bottom-7 -left-4 flex items-center gap-3 rounded-2xl border-accent/30 p-4 md:-left-8">
+              <span className="grid size-8 place-items-center rounded-lg bg-accent/20 text-accent">
+                ✓
+              </span>
+              <div>
+                <p className="text-[10px] text-muted-foreground">BAS Lodged</p>
+                <p className="font-display text-xs font-bold text-foreground">Auto-verified</p>
               </div>
-              <ul className="mt-4 space-y-3 border-l border-primary/30 pl-4 text-sm text-muted-foreground">
-                <li>42 jobs can progress automatically today.</li>
-                <li>18 clients are blocking tax work.</li>
-                <li>9 returns have unusual transactions requiring review.</li>
-                <li>27 client follow-ups can be sent now.</li>
-              </ul>
-              <div className="mt-5 flex flex-wrap gap-2">
-                <Cta href="#workpaper">Advance Jobs →</Cta>
-                <Cta variant="ghost" href="#workpaper">
-                  Review Exceptions →
-                </Cta>
-              </div>
-            </aside>
-          </div>
+            </div>
 
-          <div className="mt-6 flex flex-wrap gap-2">
-            {[
-              "CRM",
-              "Workflow",
-              "Documents",
-              "Workpapers",
-              "Tax",
-              "BAS",
-              "Advisory",
-              "Billing",
-            ].map((t) => (
-              <Pill key={t}>{t}</Pill>
-            ))}
+            <div className="panel absolute -top-6 -right-2 w-56 space-y-2 rounded-2xl border-primary/30 p-4 md:-right-6">
+              <p className="text-[10px] font-bold tracking-widest text-primary uppercase">
+                AI Co-pilot
+              </p>
+              <p className="text-xs text-foreground italic">
+                "Potential tax saving identified for Client X…"
+              </p>
+              <div className="h-1 w-full overflow-hidden rounded-full bg-surface-2">
+                <div className="h-full w-[60%] bg-gradient-to-r from-primary to-accent" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
